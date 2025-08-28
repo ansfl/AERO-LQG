@@ -2,14 +2,15 @@
 
 
 ### Introduction
-The increasing adoption of autonomous systems highlights the need for drift-resilient state estimation. Inertial Navigation Systems (INS) provide continuous position and velocity estimates, but their accuracy deteriorates over time due to sensor biases and noise. While GPS can correct this drift, its limited availability in many environments necessitates alternative update sources, known as "anchors of certainty." Among these, Zero-Velocity Update (ZUPT) is highly effective during stationary intervals. 
+Quadrotors are indispensable in civilian, industrial, and military domains, undertaking complex, high-precision tasks once reserved for specialized systems. Across all contexts, energy efficiency remains a critical constraint: quadrotors must reconcile the high power demands of agility with the minimal consumption required for extended endurance.
 
-However, traditional ZUPTs rely on nonholonomic constraints, restricting their use to surface-bound platforms and making them unsuitable for aerial vehicles, where precise **hovering** is often essential.
+Meeting this trade-off calls for mode-specific optimization frameworks that adapt to diverse mission profiles. At their core lie optimal control policies defining error functions whose minimization yields robust, mission-tailored performance. While solutions are straightforward for fixed weight matrices, selecting those weights is a far greater challenge—lacking analytical guidance and thus relying on exhaustive or stochastic search. This interdependence can be framed as a bi-level optimization problem, with the outer loop determining weights a priori.
+
+This work introduces an aerial-enabled robust optimization for LQG tuning (AERO-LQG), a framework employing evolutionary strategy to fine-tune LQG weighting parameters. Applied to the linearized hovering mode of quadrotor flight, AERO-LQG achieves performance gains of several tens of percent, underscoring its potential for enabling high-performance, energy-efficient quadrotor control.
 
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
 <img src="https://github.com/ansfl/C-ZUPT/blob/main/data/GIF-Bird-2.gif?raw=true" width="700" class='center'/>
 
-This work presents a novel controlled extension, C-ZUPT, supported by LQG control, specifically designed for aerial platforms. By defining an acceptable uncertainty tolerance, C-ZUPT identifies quasi-static equilibria to provide precise velocity updates to the estimation filter. Extensive validation demonstrates that these opportunistic, high-quality updates significantly reduce INS drift and control effort. As a result, C-ZUPT minimizes filter divergence and enhances platform stability, leading to reduced energy consumption and longer hover durations—key benefits for resource-constrained aerial systems.
 
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; 
 <img src="https://github.com/ansfl/C-ZUPT/blob/main/data/Fig_Dynamics.png?raw=true" width="1050" class='center'/>
