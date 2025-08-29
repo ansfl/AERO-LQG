@@ -1,0 +1,50 @@
+
+
+% [Q_Bry, R_Bry] = S_Bryson( );                 % Use Bryson rule as an initialization point
+% 
+% % Configure dimensional properties
+% nx = size(Q_Bry,1);                           % state dimension
+% nu = size(R_Bry,1);                           % input dimension
+% nvars = nx + nu;                              % total dimension
+% 
+% % --- fitness wrapper: z = [log10 diag(Q); log10 diag(R)] ---
+% fitness = @(z) fitnessFcn( diag(10.^z(1:nx)), diag(10.^z(nx+1:end)) );
+% 
+% % Pack variables: z = [log10 diag(Q); log10 diag(R)]
+% q0 = max(diag(Q_Bry), 1e-12);             % guard zeros for log
+% r0 = max(diag(R_Bry), 1e-12);
+% z0 = [log10(q0); log10(r0)];
+% nvars = nx + nu;
+% 
+% % Bounds: allow ±2 decades around Bryson (tune per need)
+% deltaQ = 2;  deltaR = 2;                       % e.g., 10^(±2) = 0.01…100
+% lb = [z0(1:nx) - deltaQ; z0(nx+1:end) - deltaR];
+% ub = [z0(1:nx) + deltaQ; z0(nx+1:end) + deltaR];
+% 
+% % Objective: z -> Q,R -> fitness
+% obj = @(z) fitnessFcn( diag(10.^z(1:nx)), diag(10.^z(nx+1:end)) );
+% 
+% % Swarm seeding near Bryson
+% SwarmSize = 40;                                     % budget knob
+% init = repmat(z0.', SwarmSize, 1) + 0.10*randn(SwarmSize, nvars);  % small jitter
+% init = min(max(init, lb.'), ub.');                  % clip to bounds
+% 
+% % Options (common sensible defaults)
+% opts = optimoptions('particleswarm', ...
+%     'SwarmSize',           SwarmSize, ...
+%     'MaxIterations',       10, ...
+%     'InitialSwarmMatrix',  init, ...
+%     'Display',             'iter', ...
+%     'UseParallel',         false);   % set true if your fitness is thread-safe
+% 
+% % Run PSO
+% [z_star, fval, exitflag, out] = particleswarm(obj, nvars, lb, ub, opts); %#ok<ASGLU>
+% 
+% % Unpack
+% Q_opt = diag(10.^z_star(1:nx));
+% R_opt = diag(10.^z_star(nx+1:end));
+% 
+% % Run your simulator
+% [X_GT, X_est, u_out_k] = run_LQG_simulation(Q_opt, R_opt);
+% visualize_x;                    % Visualize state variables
+% visualize_err;                  % Visuzalize error states and control inputs

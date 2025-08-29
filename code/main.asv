@@ -1,0 +1,78 @@
+clc; clear; close all;
+
+set(0, 'DefaultFigureRenderer', 'painters')
+set(0, 'defaultfigurecolor', [1 1 1]);
+set(0, 'DefaultAxesXGrid', 'on');
+set(groot, 'DefaultLineLineWidth', 2);
+set(0, 'DefaultTextInterpreter', 'latex');   % For all text objects (titles, labels, etc.)
+set(0, 'DefaultAxesTickLabelInterpreter', 'latex');  % For axis tick labels
+set(0, 'DefaultLegendInterpreter', 'latex'); % For legends
+
+fig_loc = [2500 680 750 700];
+Fig = @(fig_loc) figure('rend', 'painters', 'pos', fig_loc);
+
+% System initialization
+[A, B, dt, tt, t_f, t_tau, Rad_2_RPM, x_dim, u_dim, W, V] = sys_init();
+Rad_2_deg = 360/(2*pi); Rad_2_RPM = 60/(2*pi);
+
+% System parameters
+[m, L, g, J_xx, J_yy, J_zz, k_T, k_M, eta_eff, Mat_Mix, w_hover, T_max] = sys_params();
+
+%% Sanity check -- single execution, using Bryson coefficiens
+
+[Q_Bry, R_Bry] = S_Bryson( );                % LQG control weights
+
+% Divergence example (uncomment)
+% [Q_rnd, R_rnd] = deal(tril(randn(size(Q_Bry))), randn(size(R_Bry)));
+% [X_GT, X_est, u_out_k] = run_LQG_simulation( Q_rnd*Q_rnd', R_rnd*R_rnd' );   % Get state variables
+
+[X_GT, X_est, u_out_k] = run_LQG_simulation( Q_Bry, R_Bry );   % Get state variables
+visualize_err;
+
+
+%% CMA-ES implementation
+
+[Q_Bry, R_Bry] = S_Bryson();
+% fitnessFcn = @(Q,R) fitnessFcn(Q, R); % your existing function
+
+opts = struct('maxEvals', 2000, 'sigma0', 0.5, 'verbosity', 1, ...
+              'boundsExp', [-4, 4], 'restarts', 2, 'seed', 1);
+[best, out] = CMAES_LQG(fitnessFcn, Q_Bry, R_Bry, opts);
+
+Q_opt = best.Q; R_opt = best.R; J_opt = best.J;
+fprintf('Best J = %.6e\n', J_opt);
+
+
+%% Genetic Algorithm implementation
+
+% Configure dimensional properties
+nx = 12;                                    % state dimension
+nu = 4;                                     % input dimension
+% nvars = nx + nu;                            % total  dimenstion
+
+% --- fitness wrapper: z = [log10 diag(Q); log10 diag(R)] ---
+fitness = @(z) fitnessFcn( diag(10.^z(1:nx)), diag(10.^z(nx+1:end)) );
+
+% Optimizer Boundaries approximation using Bryson's rule 
+nx = size(Q_Bry,1);  nu = size(R_Bry,1);
+
+% Pack variables: z = [log10 diag(Q); log10 diag(R)]
+q0 = max(diag(Q_Bry), 1e-12);             % guard zeros for log
+r0 = max(diag(R_Bry), 1e-12);
+z0 = [log10(q0); log10(r0)];
+nvars = nx + nu;
+
+% Bounds: allow ±2 decades around Bryson (tune per need)
+deltaQ = 2;  deltaR = 2;                       % e.g., 10^(±2) = 0.01…100
+lb = [z0(1:nx) - deltaQ; z0(nx+1:end) - deltaR];
+ub = [z0(1:nx) + deltaQ; z0(nx+1:end) + deltaR];
+
+opts = optimoptions('ga', 'Display','iter', 'PopulationSize', 100, 'MaxGenerations', 3);
+[z_opt, J_opt] = ga(fitness, nvars, [], [], [], [], lb, ub, [], opts);
+
+% Unpacking / devectorizing back into regular PSD form
+Q_opt = diag(10.^z_opt(1:nx));
+R_opt = diag(10.^z_opt(nx+1:end));
+[X_GT, X_est, u_out_k] = run_LQG_simulation( Q_opt, R_opt ); % Get state variables
+
+visualize_err();
