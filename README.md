@@ -14,7 +14,7 @@ Quadrotors are indispensable across civilian, industrial, and defense domains, t
 Meeting this trade-off calls for mode-specific optimization frameworks that adapt to diverse mission profiles. At their core lie optimal control policies with error functions whose minimization yields robust, mission-tailored behavior. While solutions are straightforward for fixed weight matrices, **choosing** those weights is far harder—there is little analytical guidance, so practitioners rely on exhaustive or stochastic search. This interdependence can be posed as a **bi-level optimization** problem, with the outer loop selecting weights a priori.
 
 <p align="center">
-  <img src="https://github.com/ansfl/C-ZUPT/blob/main/data/Fig_Dynamics.png?raw=true" width="1050" alt="Dynamics overview" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_system.png?raw=true" width="1050" alt="Dynamics overview" />
 </p>
 
 This work introduces **AERO-LQG** (Aerial-Enabled Robust Optimization for LQG tuning), a framework that uses evolutionary strategies to fine-tune LQG weighting parameters. Applied to the linearized hovering mode of quadrotor flight, AERO-LQG yields performance gains of several tens of percent, highlighting its potential for high-performance, energy-efficient control.
