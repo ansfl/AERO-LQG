@@ -41,7 +41,8 @@ To understand the stabilization mechanism coordinating all four control inputs, 
  
 ## Code
 
-The code can be implemented using MATLAB R2022b or any later releases, and is organized as follows :
+The code can be implemented using MATLAB R2022b or any later releases, with strict REQUIREMENT of two packeges installed : 
+Global Optimization Toolbox, and Statistics and Machine Learning Toolbox, and is organized as follows :
 
 ### Directory tree
 <pre>
