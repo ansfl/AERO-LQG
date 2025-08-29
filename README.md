@@ -5,7 +5,7 @@
 # AERO-LQG
 
 ### Introduction
-Quadrotors are indispensable across civilian, industrial, and defense domains, taking on complex, high-precision tasks once reserved for specialized systems. In all contexts, **energy efficiency** is a hard constraint: vehicles must reconcile the high power demands of agility with the minimal consumption required for extended endurance.
+Quadrotors are indispensable across civilian, industrial, and defense domains, taking on complex, high-precision tasks once reserved for specialized systems. In all contexts, **energy efficiency** is a hard constraint: vehicles must reconcile the high power demands of agility with the minimal consumption required for **extended** endurance.
 
 <p align="center">
   <img src="https://github.com/ansfl/C-ZUPT/blob/main/data/GIF-Bird-2.gif?raw=true" width="600" alt="Quadrotor GIF" />
