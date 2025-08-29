@@ -5,25 +5,25 @@
 # AERO-LQG
 
 ### Introduction
-Quadrotors are indispensable across civilian, industrial, and defense domains, taking on complex, high-precision tasks once reserved for specialized systems. In all contexts, **energy efficiency** is a hard constraint: vehicles must reconcile the high power demands of agility with the minimal consumption required for **extended** endurance.
+Quadrotors have become indispensable across civilian, industrial, and defense domains, executing complex, high-precision tasks once reserved for specialized platforms. In every application, **energy efficiency** remains a critical constraint: vehicles must reconcile the high power demands of agile maneuvering with the minimal consumption required for **sustained** endurance.
 
 <p align="center">
   <img src="https://github.com/ansfl/C-ZUPT/blob/main/data/GIF-Bird-2.gif?raw=true" width="500" alt="Quadrotor GIF" />
 </p>
 
-Meeting this trade-off calls for mode-specific optimization frameworks that adapt to diverse mission profiles. At their core lie optimal control policies with error functions whose minimization yields robust, mission-tailored behavior. While solutions are straightforward for fixed weight matrices, **choosing** those weights is far harder—there is little analytical guidance, so practitioners rely on exhaustive or stochastic search, navigating hopelessly in a minima-dense cost landscape : 
+Addressing this trade-off requires mode-specific optimization frameworks that adapt to diverse mission profiles. At their foundation lie optimal control policies defined by error functions, whose minimization enables robust, mission-tailored performance. While closed-form solutions exist once the weighting matrices are fixed, **selecting** those weights is far more challenging. With little analytical guidance available, practitioners often resort to exhaustive or stochastic search, navigating a cost landscape dense with local minima:
 
 <p align="center">
   <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Cost.png?raw=true" width="450" alt="Cost landscape" />
 </p>
 
-This interdependence can be posed as a **bi-level optimization** problem, with the outer loop selecting weights a priori.
+This challenge, however, is not intractable. By framing the interdependence between controller performance and weight selection as a **bi-level optimization** problem, the task can be decomposed: an outer loop determines the weights a priori, while an inner loop evaluates the resulting closed-loop dynamics.
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_system.png?raw=true" width="450" alt="Dynamics overview" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_system.png?raw=true" width="450" alt="System overview" />
 </p>
 
-This work introduces **AERO-LQG** (Aerial-Enabled Robust Optimization for LQG tuning), a framework that uses evolutionary strategies to fine-tune LQG weighting parameters. Applied to the linearized hovering mode of quadrotor flight, AERO-LQG yields performance gains of several tens of percent, highlighting its potential for high-performance, energy-efficient control.
+To address this, we introduce **AERO-LQG** (Aerial-Enabled Robust Optimization for LQG tuning), a framework that employs evolutionary strategies to fine-tune LQG weighting parameters. Applied to the linearized hovering mode of quadrotor flight, AERO-LQG delivers performance gains of several tens of percent, underscoring its potential for high-performance, energy-efficient quadrotor control.
 
 ### What makes this work special?
 We expose the optimization mechanism itself—illustrating how covariance tuning evolves from random initialization toward a diagonal-centered structure:
