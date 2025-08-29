@@ -11,7 +11,13 @@ Quadrotors are indispensable across civilian, industrial, and defense domains, t
   <img src="https://github.com/ansfl/C-ZUPT/blob/main/data/GIF-Bird-2.gif?raw=true" width="500" alt="Quadrotor GIF" />
 </p>
 
-Meeting this trade-off calls for mode-specific optimization frameworks that adapt to diverse mission profiles. At their core lie optimal control policies with error functions whose minimization yields robust, mission-tailored behavior. While solutions are straightforward for fixed weight matrices, **choosing** those weights is far harder—there is little analytical guidance, so practitioners rely on exhaustive or stochastic search. This interdependence can be posed as a **bi-level optimization** problem, with the outer loop selecting weights a priori.
+Meeting this trade-off calls for mode-specific optimization frameworks that adapt to diverse mission profiles. At their core lie optimal control policies with error functions whose minimization yields robust, mission-tailored behavior. While solutions are straightforward for fixed weight matrices, **choosing** those weights is far harder—there is little analytical guidance, so practitioners rely on exhaustive or stochastic search, navigating hopelessly in a minima-dense cost landscape : 
+
+<p align="center">
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_cost.png?raw=true" width="450" alt="Dynamics overview" />
+</p>
+
+This interdependence can be posed as a **bi-level optimization** problem, with the outer loop selecting weights a priori.
 
 <p align="center">
   <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_system.png?raw=true" width="450" alt="Dynamics overview" />
