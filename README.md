@@ -57,3 +57,54 @@ The code runs on **MATLAB R2022b or later** and requires:
 - Statistics and Machine Learning Toolbox
 
 ### Directory tree
+```
+
+\[root]
+├─ code
+│  ├─ main.m
+│  ├─ Linearize\_Quad.m
+│  ├─ f\_Runga\_Kutta.m
+│  ├─ System\_Parameters.m
+│  └─ u\_saturation.m
+├─ data
+└─ requirements.txt
+
+```
+
+| File                | Purpose                                                            |
+|---------------------|--------------------------------------------------------------------|
+| `main.m`            | Entry point                                                        |
+| `Linearize_Quad.m`  | Linearization; state and input Jacobians                           |
+| `f_Runga_Kutta.m`   | 4th-order Runge–Kutta integrator for \( f(x_k,u_k) \)              |
+| `System_Parameters.m` | Load physical and mixer parameters                              |
+| `u_saturation.m`    | Enforce actuator limits                                            |
+
+## Citation
+This work follows our earlier study on LQG optimization, currently under advanced review in a leading aerospace venue:
+
+```
+
+@article{engelsman2025c,
+title   = {C-ZUPT: Stationarity-Aided Aerial Hovering},
+author  = {Engelsman, Daniel and Klein, Itzik},
+journal = {arXiv preprint arXiv:2507.09344},
+year    = {2025}
+}
+
+```
+
+When using this repository, please star it and cite:
+
+```
+
+@article{engelsman2025aero,
+title   = {AERO-LQG: Aerial-Enabled Robust Optimization for LQG-Based Quadrotor Flight Controller},
+author  = {Engelsman, Daniel and Klein, Itzik},
+journal = {arXiv preprint arXiv:2508.20888},
+year    = {2025}
+}
+
+```
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/ArXiv_web.svg/250px-ArXiv_web.svg.png" width="70" alt="arXiv">](https://arxiv.org/abs/2508.20888)
+```
