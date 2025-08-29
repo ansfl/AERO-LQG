@@ -19,12 +19,12 @@ This work introduces an aerial-enabled robust optimization for LQG tuning (AERO-
 This work enables a sneak peek into the optimization mechanism, showing us how the covariance tuning behaves in the eyes of the optimizer, starting from 
 
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; 
-<img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Covariance.png?raw=true" width="1050" class='center'/>
+<img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Covariance_1.png?raw=true" width="1050" class='center'/>
 
 when interpolated across the time axis, the results can be indeed mind blowing : 
 
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; 
-<img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Interpolation.gif?raw=true" width="1050" class='center'/>
+<img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Interpolation.gif?raw=true" width="650" class='center'/>
 
 ### Simulation Results
 
