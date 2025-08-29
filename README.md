@@ -38,13 +38,13 @@ Thereby shedding light on how optimization methods naturally suppress off-diagon
 We first demonstrate an LQG controller tailored to quadrotor dynamics. It corrects deviations induced by non-equilibrium initial conditions (\( \boldsymbol{x}_0 \neq \boldsymbol{x}_e \)) and process noise (wind). In this baseline scenario, the position update frequency equals the prediction rate (\( \Gamma = 1 \)). State trajectories over a 10-second interval are shown below:
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Instability.png?raw=true" width="600" alt="State trajectories" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Instability.png?raw=true" width="500" alt="State trajectories" />
 </p>
 
 To clarify the stabilization mechanism coordinating all four control inputs: on the left, solid lines show the LQR commands; dashed brown lines show the realized outputs with minimal phase lag. The dashed black line marks the steady-state hover setpoint (thrust at top; roll, pitch, yaw torques below). On the right, rotor speeds from the low-level speed controller are obtained by inverting the mixer matrix. Dashed black lines indicate steady-state hover RPM; positive values denote counter-clockwise rotation.
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Stability.png?raw=true" width="1050" alt="Stability and actuator behavior" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Stability.png?raw=true" width="500" alt="Stability and actuator behavior" />
 </p>
 
 ## Code
