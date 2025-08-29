@@ -29,7 +29,7 @@ We expose the optimization mechanism itself—illustrating how covariance tuning
 Interpolated across time, the effect becomes striking:
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Interpolation.gif?raw=true" width="500" alt="Interpolation animation" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Interpolation.gif?raw=true" width="400" alt="Interpolation animation" />
 </p>
 
 Thereby shedding light on how optimization methods naturally suppress off-diagonal entries, revealing—almost incidentally—that cross-correlations between different state variables are weak.
