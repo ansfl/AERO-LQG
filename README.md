@@ -35,17 +35,20 @@ Interpolated across time, the effect becomes striking:
 Thereby shedding light on how optimization methods naturally suppress off-diagonal entries, revealing—almost incidentally—that cross-correlations between different state variables are weak.
 
 ### Simulation results
-We first demonstrate an LQG controller tailored to quadrotor dynamics. It corrects deviations induced by non-equilibrium initial conditions (\( \boldsymbol{x}_0 \neq \boldsymbol{x}_e \)) and process noise (wind). In this baseline scenario, the position update frequency equals the prediction rate (\( \Gamma = 1 \)). State trajectories over a 10-second interval are shown below:
+### Simulation Results
+
+We first examine the time evolution of the quadrotor state variables under standardized gust disturbances, using either manual tuning or purely heuristic approaches. As shown, deviations from the hovering equilibrium quickly amplify across translational and rotational channels, with coupled oscillations emerging between roll, pitch, and yaw. The estimator fails to correct these growing errors, and the feedback loop cannot suppress the accumulating drift, ultimately causing divergence in both position and attitude. This outcome highlights the fragility of baseline configurations when the weighting matrices remain unoptimized. State trajectories over a 10-second interval are presented below:
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Instability.png?raw=true" width="500" alt="State trajectories" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Instability.png?raw=true" width="500" alt="State trajectories under instability" />
 </p>
 
-To clarify the stabilization mechanism coordinating all four control inputs: on the left, solid lines show the LQR commands; dashed brown lines show the realized outputs with minimal phase lag. The dashed black line marks the steady-state hover setpoint (thrust at top; roll, pitch, yaw torques below). On the right, rotor speeds from the low-level speed controller are obtained by inverting the mixer matrix. Dashed black lines indicate steady-state hover RPM; positive values denote counter-clockwise rotation.
+In contrast, the second figure shows the closed-loop response once the optimization framework is applied. Under the same gust inputs, deviations are limited to short-lived transients that are rapidly attenuated by the tuned controller. State variables converge smoothly back to their equilibrium values, with cross-axis coupling significantly reduced. The estimator and controller act in concert, maintaining bounded errors and restoring stable hover. These results demonstrate the ability of the optimization-based approach to enforce robustness against disturbances while preserving control efficiency.
 
 <p align="center">
   <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Stability.png?raw=true" width="500" alt="Stability and actuator behavior" />
 </p>
+
 
 ## Code
 The code runs on **MATLAB R2022b or later** and requires:
