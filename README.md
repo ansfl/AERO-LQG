@@ -34,7 +34,6 @@ Interpolated across time, the effect becomes striking:
 
 Thereby shedding light on how optimization methods naturally suppress off-diagonal entries, revealing—almost incidentally—that cross-correlations between different state variables are weak.
 
-### Simulation results
 ### Simulation Results
 
 We first examine the time evolution of the quadrotor state variables under standardized gust disturbances, using either manual tuning or purely heuristic approaches. As shown, deviations from the hovering equilibrium quickly amplify across translational and rotational channels, with coupled oscillations emerging between roll, pitch, and yaw. The estimator fails to correct these growing errors, and the feedback loop cannot suppress the accumulating drift, ultimately causing divergence in both position and attitude. This outcome highlights the fragility of baseline configurations when the weighting matrices remain unoptimized. State trajectories over a 10-second interval are presented below:
