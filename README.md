@@ -1,5 +1,6 @@
-&nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  <img src="https://github.com/ansfl/MEMS-IMU-Denoising/blob/de1832c6fc4e07936bd36e13a5fab6fe5dfc78d3/figrues/Logo.png" />
-
+<p align="center">
+  <img src="https://github.com/ansfl/MEMS-IMU-Denoising/blob/de1832c6fc4e07936bd36e13a5fab6fe5dfc78d3/figrues/Logo.png" alt="Project logo" />
+</p>
 
 ### Introduction
 Quadrotors are indispensable in civilian, industrial, and military domains, undertaking complex, high-precision tasks once reserved for specialized systems. Across all contexts, energy efficiency remains a critical constraint: quadrotors must reconcile the high power demands of agility with the minimal consumption required for EXTENDED aerial endurance.
@@ -16,7 +17,7 @@ This work introduces an aerial-enabled robust optimization for LQG tuning (AERO-
 
 ### What makes this work special ??
 
-This work enables a sneak peek into the optimization mechanism, showing us how the covariance tuning behaves in the eyes of the optimizer, starting from 
+This work enables a sneak peek into the optimization mechanism, showing us how the covariance tuning behaves in the eyes of the optimizer, starting from complete random initialization, while slowly converging into diagonal-centered weight matrix : 
 
 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; 
 <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Covariance_1.png?raw=true" width="1050" class='center'/>
