@@ -32,6 +32,8 @@ Interpolated across time, the effect becomes striking:
   <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Interpolation.gif?raw=true" width="500" alt="Interpolation animation" />
 </p>
 
+Thereby shedding light on how optimization methods naturally suppress off-diagonal entries, revealing—almost incidentally—that cross-correlations between different state variables are weak.
+
 ### Simulation results
 We first demonstrate an LQG controller tailored to quadrotor dynamics. It corrects deviations induced by non-equilibrium initial conditions (\( \boldsymbol{x}_0 \neq \boldsymbol{x}_e \)) and process noise (wind). In this baseline scenario, the position update frequency equals the prediction rate (\( \Gamma = 1 \)). State trajectories over a 10-second interval are shown below:
 
