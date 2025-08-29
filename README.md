@@ -67,7 +67,7 @@ File | Purpose
 
 ## Citation
 
-This work is a follow-up extension for our previous work, where LQG optimization was thoroughly checked and analyzed, and is currently in advance revewing in esteemed aerospace journal. 
+This work is a follow-up to our previous study, where LQG optimization was thoroughly examined and analyzed, and is currently under advanced review in a leading aerospace journal :
 ```
 @article{engelsman2025c,
   title={C-ZUPT: Stationarity-Aided Aerial Hovering},
@@ -76,8 +76,7 @@ This work is a follow-up extension for our previous work, where LQG optimization
   year={2025}
 }
 ```
-The authors would appreciate users giving stars to this repository and citing our article as follows:
-revewing in esteemed aerospace journal. 
+When using this repository, we kindly ask users to star it and cite our article as follows :
 ```
 @article{engelsman2025aero,
   title={AERO-LQG: Aerial-Enabled Robust Optimization for LQG-Based Quadrotor Flight Controller},
