@@ -67,7 +67,7 @@ File | Purpose
 
 ## Citation
 
-The authors would appreciate users giving stars to this repository and citing our article as follows:
+This work is a follow-up extension for our previous work, where LQG optimization was thoroughly checked and analyzed, and is currently in advance revewing in esteemed aerospace journal. 
 ```
 @article{engelsman2025c,
   title={C-ZUPT: Stationarity-Aided Aerial Hovering},
@@ -76,5 +76,14 @@ The authors would appreciate users giving stars to this repository and citing ou
   year={2025}
 }
 ```
-
-[<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/ArXiv_web.svg/250px-ArXiv_web.svg.png width=70/>](https://arxiv.org/abs/2507.09344)
+The authors would appreciate users giving stars to this repository and citing our article as follows:
+revewing in esteemed aerospace journal. 
+```
+@article{engelsman2025aero,
+  title={AERO-LQG: Aerial-Enabled Robust Optimization for LQG-Based Quadrotor Flight Controller},
+  author={Engelsman, Daniel and Klein, Itzik},
+  journal={arXiv preprint arXiv:2507.09344},
+  year={2025}
+}
+```
+[<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/ArXiv_web.svg/250px-ArXiv_web.svg.png width=70/>](https://arxiv.org/abs/2508.20888)
