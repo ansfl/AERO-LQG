@@ -59,13 +59,13 @@ The code runs on **MATLAB R2022b or later** and requires:
 ### Directory tree
 ```
 
-\[root]
+[root]
 ├─ code
 │  ├─ main.m
-│  ├─ Linearize\_Quad.m
-│  ├─ f\_Runga\_Kutta.m
-│  ├─ System\_Parameters.m
-│  └─ u\_saturation.m
+│  ├─ Linearize_Quad.m
+│  ├─ f_Runga_Kutta.m
+│  ├─ System_Parameters.m
+│  └─ u_saturation.m
 ├─ data
 └─ requirements.txt
 
@@ -76,7 +76,7 @@ The code runs on **MATLAB R2022b or later** and requires:
 | `main.m`            | Entry point                                                        |
 | `Linearize_Quad.m`  | Linearization; state and input Jacobians                           |
 | `f_Runga_Kutta.m`   | 4th-order Runge–Kutta integrator for \( f(x_k,u_k) \)              |
-| `System_Parameters.m` | Load physical and mixer parameters                              |
+| `System_Parameters.m` | Load physical and mixer parameters                               |
 | `u_saturation.m`    | Enforce actuator limits                                            |
 
 ## Citation
