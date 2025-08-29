@@ -14,7 +14,7 @@ Quadrotors have become indispensable across civilian, industrial, and defense do
 Addressing this trade-off requires mode-specific optimization frameworks that adapt to diverse mission profiles. At their foundation lie optimal control policies defined by error functions, whose minimization enables robust, mission-tailored performance. While closed-form solutions exist once the weighting matrices are fixed, **selecting** those weights is far more challenging. With little analytical guidance available, practitioners often resort to exhaustive or stochastic search, navigating a cost landscape dense with local minima:
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Cost.png?raw=true" width="450" alt="Cost landscape" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Cost.png?raw=true" width="550" alt="Cost landscape" />
 </p>
 
 This challenge, however, is not intractable. By framing the interdependence between controller performance and weight selection as a **bi-level optimization** problem, the task can be decomposed: an outer loop determines the weights a priori, while an inner loop evaluates the resulting closed-loop dynamics.
