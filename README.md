@@ -39,13 +39,13 @@ Thereby shedding light on how optimization methods naturally suppress off-diagon
 We first examine the time evolution of the quadrotor state variables under standardized gust disturbances, using either manual tuning or purely heuristic approaches. As shown, deviations from the hovering equilibrium quickly amplify across translational and rotational channels, with coupled oscillations emerging between roll, pitch, and yaw. The **estimator fails** to correct these growing errors, and the feedback loop **cannot suppress** the accumulating drift, ultimately causing **divergence** in both position and attitude. This outcome highlights the fragility of baseline configurations when the weighting matrices remain unoptimized. State trajectories over a 10-second interval are presented below:
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Instability.png?raw=true" width="500" alt="State trajectories under instability" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Instability.png?raw=true" width="450" alt="State trajectories under instability" />
 </p>
 
 In contrast, the second figure shows the closed-loop response once the **optimization framework** is applied. Under the same gust inputs, deviations are **limited** to short-lived transients that are rapidly attenuated by the tuned controller. State variables **converge** smoothly back to their equilibrium values, with cross-axis coupling significantly reduced. The estimator and controller act in concert, maintaining bounded errors and restoring **stable hover**. These results demonstrate the ability of the optimization-based approach to enforce robustness against disturbances while preserving control efficiency.
 
 <p align="center">
-  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Stability.png?raw=true" width="500" alt="Stability and actuator behavior" />
+  <img src="https://github.com/ansfl/AERO-LQG/blob/main/data/Fig_Stability.png?raw=true" width="450" alt="Stability and actuator behavior" />
 </p>
 
 
