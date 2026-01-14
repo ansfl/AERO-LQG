@@ -89,11 +89,13 @@ This work follows our earlier study on LQG optimization, currently under advance
 
 ```
 
-@article{engelsman2025c,
-title   = {C-ZUPT: Stationarity-Aided Aerial Hovering},
-author  = {Engelsman, Daniel and Klein, Itzik},
-journal = {arXiv preprint arXiv:2507.09344},
-year    = {2025}
+@ARTICLE{11328808,
+  author={Engelsman, Daniel and Klein, Itzik},
+  journal={IEEE Transactions on Aerospace and Electronic Systems}, 
+  title={C-ZUPT: Stationarity-Aided Aerial Hovering}, 
+  year={2026},
+  pages={1-15},
+  doi={10.1109/TAES.2025.3650499}
 }
 
 ```
