@@ -104,12 +104,17 @@ When using this repository, please star it and cite:
 
 ```
 
-@article{engelsman2025aero,
-title   = {AERO-LQG: Aerial-Enabled Robust Optimization for LQG-Based Quadrotor Flight Controller},
-author  = {Engelsman, Daniel and Klein, Itzik},
-journal = {arXiv preprint arXiv:2508.20888},
-year    = {2025}
+@inproceedings{imav2026_engelsman,
+author = {Daniel Engelsman and Itzik Klein},
+title = {AERO-LQG: Aerial-Enabled Robust Optimization for LQG-Based Quadrotor Flight Controller},
+year = {2026},
+month = {Sep},
+day = {21-25},
+booktitle = {17$^{th}$ International Micro Air Vehicle Conference and Competition},
+pages = {117--124},
+url = {http://www.imavs.org/papers/2026/14.pdf}
 }
+
 
 ```
 
